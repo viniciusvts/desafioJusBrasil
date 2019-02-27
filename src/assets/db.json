@@ -1,23 +1,9 @@
 {
   "entities": [
     {
-      "title": "Um titulo",
+      "title": "titulo",
       "type": "TOPIC"
-    },
-    {},
-    {},
-    {},
-    {},
-    {},
-    {},
-    {},
-    {},
-    {},
-    {},
-    {},
-    {},
-    {},
-    {}
+    }
   ],
   "user": {
     "name": "jusbrasil"
