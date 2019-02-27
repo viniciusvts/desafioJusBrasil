@@ -16,21 +16,18 @@ module.exports = function(app, db) {
 
     //responder get em /entities
     app.get ('/entities', (req, res) => {
-        //reconhecer query na uri
-        var query = location.search.slice(1);
-        var partes = query.split('&');
-        var data = {};
-        partes.forEach(function (parte) {
-            var chaveValor = parte.split('=');
-            var chave = chaveValor[0];
-            var valor = chaveValor[1];
-            data[chave] = valor;
-        });
-
-        console.log(data); // Object {title: "aqui o titulo", type: "aqui o tipo"}
-        
-        console.log(req.body);
-        res.send('GET enviado');
+        //log  ;
+        console.log(req.headers.host + ' request GET: ' + req.query.q);
+        //cpnsulta se exxiste
+        const resBd = db.get('entities').find({title: req.query.q}).value();
+        if(resBd){
+            res.status(200).send({
+                title: resBd.title,
+                type: resBd.type
+            })
+        }else{
+            res.status(200).send({});
+        }
     });
 
     app.get('/', (req, res) => {
