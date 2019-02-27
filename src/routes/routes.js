@@ -31,6 +31,12 @@ module.exports = function(app, db) {
     });
 
     app.get('/', (req, res) => {
-        res.send('Hello World!/n send');
+        res.send('Hello World!/n Estamos servindo CRUD');
     });
 };
+
+
+
+
+
+
